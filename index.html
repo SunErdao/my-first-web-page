@@ -10,6 +10,71 @@
     <h1>AI 编程真有趣！</h1>
     <p>这是由智能AI助手自动生成的网页内容。</p>
     <p>我很期待学习更多 AI 编程知识。</p>
+
+    <!-- 图片轮播 Banner -->
+    <div class="banner">
+        <div class="banner-slides">
+            <div class="slide active">
+                <img src="https://picsum.photos/1200/400?random=1" alt="轮播图1">
+            </div>
+            <div class="slide">
+                <img src="https://picsum.photos/1200/400?random=2" alt="轮播图2">
+            </div>
+            <div class="slide">
+                <img src="https://picsum.photos/1200/400?random=3" alt="轮播图3">
+            </div>
+            <div class="slide">
+                <img src="https://picsum.photos/1200/400?random=4" alt="轮播图4">
+            </div>
+        </div>
+        <div class="banner-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </div>
+
     <button>立即学习</button>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            if (index >= totalSlides) currentSlide = 0;
+            if (index < 0) currentSlide = totalSlides - 1;
+
+            document.querySelector('.banner-slides').style.transform = `translateX(-${currentSlide * 100}%)`;
+
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentSlide);
+            });
+
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === currentSlide);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide++;
+            showSlide(currentSlide);
+        }
+
+        // 自动轮播
+        setInterval(nextSlide, 3000);
+
+        // 点击指示点切换
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentSlide = index;
+                showSlide(currentSlide);
+            });
+        });
+
+        showSlide(currentSlide);
+    </script>
 </body>
 </html>
