@@ -1,0 +1,30 @@
+:root {
+    --color-primary: #006400;
+    --color-bg: #ADD8E6;
+    --color-btn: #FFA500;
+    --color-btn-text: white;
+    --color-btn-hover: #ADD8E6;
+    --color-btn-hover-text: #000;
+}
+
+body {
+    background-color: var(--color-bg);
+}
+h1 {
+    color: var(--color-primary);
+}
+p {
+    line-height: 1.8;
+}
+button {
+    background-color: var(--color-btn);
+    color: var(--color-btn-text);
+    border-radius: 8px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+button:hover {
+    background-color: var(--color-btn-hover);
+    color: var(--color-btn-hover-text);
+}
